@@ -32,7 +32,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "NeW version: $NEW_VESRION!!!"
+        echo "NeW version: $NEW_VERSION!!!"
         
     - name: Build and Push Docker Image
       env:
