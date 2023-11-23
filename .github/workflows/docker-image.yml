@@ -18,13 +18,13 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Git Semantic Version
-      uses: PaulHatch/semantic-version@v4.0.3
-      with:
-        major_pattern: "major:"
-        minor_pattern: "feat:"
-        format: "${major}.${minor}.${patch}-prerelease${increment}"
-      id: version
+    # - name: Git Semantic Version
+    #   uses: PaulHatch/semantic-version@v4.0.3
+    #   with:
+    #     major_pattern: "major:"
+    #     minor_pattern: "feat:"
+    #     format: "${major}.${minor}.${patch}-prerelease${increment}"
+    #   id: version
     
     - name: Docker Login
       env:
@@ -33,14 +33,15 @@ jobs:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "NeW version: $NEW_VERSION!!!"
+        # echo "NeW version: $NEW_VERSION!!!"
         
     - name: Build and Push Docker Image
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t bodokertxis/docker-graphql:$NEW_VERSION --push .
+        # docker build -t bodokertxis/docker-graphql:$NEW_VERSION --push .
         docker build -t bodokertxis/docker-graphql:latest --push .
+        # docker build -t bodokertxis/docker-graphql:dev --push . 
         
 
       
