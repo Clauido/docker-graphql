@@ -25,7 +25,9 @@ jobs:
         
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        
+    - name: Build And Push Docker Image
+      run: |
+        docker build -t bodokertxis/docker-graphql:0.0.2 --push .
     
     
     
