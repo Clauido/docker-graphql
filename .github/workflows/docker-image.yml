@@ -39,8 +39,8 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t klerith/docker-graphql:$NEW_VERSION --push .
-        docker build -t klerith/docker-graphql:latest --push .
+        docker build -t bodokertxis/docker-graphql:$NEW_VERSION --push .
+        docker build -t bodokertxis/docker-graphql:latest --push .
         
 
       
